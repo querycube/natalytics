@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NATALYTICS | Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="text-[#2d3e50] font-sans">
+<header class="flex items-center justify-between px-4 py-3 bg-navy text-white relative flex-wrap">
+
+  <!-- 🔵 Left: Profile + Logo -->
+  <div class="flex items-center gap-4">
+    <!-- 👤 Profile Icon -->
+    <div class="relative">
+      <button onclick="toggleStudentDetails()" class="w-8 h-8 bg-green-500 text-white flex items-center justify-center rounded-full font-semibold" id="profileIcon">
+        A
+      </button>
+      <!-- 🧾 Details -->
+      <div id="studentDetails" class="absolute top-10 left-0 bg-white text-navy rounded shadow-lg p-4 w-64 hidden z-50 text-sm">
+        <p><strong>Name:</strong> <span id="stuName">Loading...</span></p>
+        <p><strong>Class:</strong> <span id="stuClass">Loading...</span></p>
+        <p><strong>Roll No:</strong> <span id="stuRoll">Loading...</span></p>
+        <p><strong>Assigned By:</strong> Mr. OOPS</p>
+      </div>
+    </div>
+
+    <h1 class="text-xl font-bold">NATALYTICS</h1>
+  </div>
+
+  <!-- 🔘 Login/Register on Desktop (nav-link style) -->
+<a class="hover:text-green transition-colors duration-300" href="#">Home</a>
+
+
+  <!-- 🍔 Hamburger on Mobile -->
+  <button id="menuBtn" class="md:hidden">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+         viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+  </button>
+
+  <!-- 🧭 Navigation: Responsive -->
+  <nav id="menu" class="w-full md:w-auto hidden md:flex md:items-center md:gap-6 md:ml-auto md:mr-4 mt-3 md:mt-0 text-white bg-navy md:bg-transparent p-4 md:p-0 rounded shadow-lg md:shadow-none z-50 md:static absolute top-full right-4 md:right-auto">
+    <nav id="menu" class="w-full md:w-auto hidden md:flex md:items-center md:gap-6 md:ml-auto md:mr-4 mt-3 md:mt-0 text-white bg-navy md:bg-transparent p-4 md:p-0 rounded shadow-lg md:shadow-none z-50 md:static absolute top-full right-4 md:right-auto">
+
+  <a href="dashboard.html" class="block md:inline mb-2 md:mb-0 pl-4 md:pl-0 hover:text-green-400">Dashboard</a>
+  <a href="home.html"      class="block md:inline mb-2 md:mb-0 pl-4 md:pl-0 hover:text-green-400">Home</a>
+
+  <!-- Mobile-only login/register -->
+  <a href="#" class="block md:hidden mb-2 md:mb-0 pl-4 md:pl-0 hover:text-green-400" onclick="handleMenuLogin()">Login/Register</a>
+
+  <a href="tests.html"     class="block md:inline mb-2 md:mb-0 pl-4 md:pl-0 hover:text-green-400">Tests</a>
+  <a href="about.html"     class="block md:inline mb-2 md:mb-0 pl-4 md:pl-0 hover:text-green-400">About Us</a>
+  <a href="contact.html"   class="block md:inline mb-2 md:mb-0 pl-4 md:pl-0 hover:text-green-400">Contact Us</a>
+
+  <!-- 🔘 Login/Register on Desktop -->
+  <a href="javascript:void(0)" onclick="handleLogout()" class="hidden md:inline mb-2 md:mb-0 pl-4 md:pl-0 text-white hover:text-green-400 transition-colors duration-300">Logout</a>
+  <a href="javascript:void(0)" class="block md:hidden mb-2 md:mb-0 pl-4 md:pl-0 hover:text-green-400" onclick="handleLogout()">Logout</a>
+</nav>
+
+  </nav>
+</header>
+
+
+  <main class="px-6 py-8 flex flex-col md:flex-row items-center md:items-start justify-between max-w-7xl mx-auto">
+    <div class="w-full md:w-1/2 space-y-6 md:pr-8">
+      <div>
+        <h2 class="text-3xl font-bold">NATALYTICS <span class="text-sm font-light">TEST SERIES</span></h2>
+        <p class="mt-3 max-w-md">
+          Let’s deep dive into the race of switching the <span class="underline text-green">weakness</span> into <span class="underline text-green">strength</span>.
+        </p>
+      </div>
+      <button onclick="toggleModal()" class="login-btn">Login / Register</button>
+      <div class="pt-6 border-t border-gray-300 mt-10">
+        <p class="font-semibold text-center md:text-left">MEDHAAVARDHAN <span class="tracking-widest">A R E N A</span></P>
+        <P class="paratag"><br>NATA test series<br>Questions pattern completely based on latest previous year papers 2024 and 2025
+          <br>Well organised based on NATA pattern by 
+          <br>Mr oops(MATHEMATICS), mihika tamrakar(APTITUDE+HISTORY+DRAWINGS)
+        </p>
+      </div>
+    </div>
+   <div class="w-full md:w-2/3 lg:w-1/2 mt-10 md:mt-0 flex justify-center">
+  <div class="img-box p-2 w-1/2">
+    <img src="img2.png" alt="My Tests Graph" class="w-full h-auto rounded" />
+  </div>
+</div>
+
+    </div>
+
+  </main>
+
+  <div id="authModal" class="modal hidden">
+    <div class="modal-box">
+
+
+      <div class="flex justify-end p-2">
+  <button onclick="toggleModal()" class="text-xl text-gray-500 hover:text-red-500 font-bold">&times;</button>
+</div>
+
+
+
+
+      <div class="flex">
+        <button onclick="switchTab('login')" id="tab-login" class="tab tab-login active">Login</button>
+        <button onclick="switchTab('signup')" id="tab-signup" class="tab tab-signup inactive">Signup</button>
+      </div>
+      <div class="overflow-hidden">
+        <div id="form-slider" class="form-slider">
+          <form id="form-login" class="form-container space-y-4">
+            <input type="email" placeholder="Email" class="form-input" required />
+            <input type="password" placeholder="Password" class="form-input" required />
+            <button class="btn-green">Login</button>
+            <button type="button" onclick="googleLogin()" class="google-btn">Sign in with Google</button>
+          </form>
+          <form id="form-signup" class="form-container space-y-4">
+            <input type="text" placeholder="Full Name" class="form-input" required />
+            <input type="tel" placeholder="Mobile Number" class="form-input" required />
+            <input type="email" placeholder="Email" class="form-input" required />
+            <input type="password" placeholder="Password" class="form-input" required />
+            <button class="btn-navy">Signup</button>
+            <button type="button" onclick="googleSignup()" class="google-btn">Sign up with Google</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ⬇️ पुराना -->
+<!-- <script src="script.js"></script> -->
+
+<!-- ⬆️ नया  -->
+<script type="module" src="script.js"></script>
+
+</body>
+</html>
