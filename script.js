@@ -209,49 +209,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 
-  // 🍔 Hamburger toggle
-  document.getElementById("menuBtn").addEventListener("click", () => {
-    document.getElementById("menu").classList.toggle("hidden");
-  });
-
-  // 🔐 Auth modal toggle
-  window.toggleModal = function () {
-    document.getElementById("authModal").classList.toggle("hidden");
-  };
-
-  // 🔁 Login/Signup tab switch with complementary background
-  window.switchTab = function (tab) {
-    const slider = document.getElementById("form-slider");
-    const tabLogin = document.getElementById("tab-login");
-    const tabSignup = document.getElementById("tab-signup");
-    const formLogin = document.getElementById("form-login");
-    const formSignup = document.getElementById("form-signup");
-
-    if (tab === "login") {
-      slider.style.transform = "translateX(0%)";
-
-      // Tabs UI
-      tabLogin.classList.add("active");
-      tabLogin.classList.remove("inactive");
-      tabSignup.classList.remove("active");
-      tabSignup.classList.add("inactive");
-
-      // Complementary background
-      formLogin.style.backgroundColor = "var(--navy)";
-      formSignup.style.backgroundColor = "transparent";
-    } else {
-      slider.style.transform = "translateX(-50%)";
-
-      tabSignup.classList.add("active");
-      tabSignup.classList.remove("inactive");
-      tabLogin.classList.remove("active");
-      tabLogin.classList.add("inactive");
-
-      formSignup.style.backgroundColor = "var(--green)";
-      formLogin.style.backgroundColor = "transparent";
-    }
-  };
-
   // 👤 Profile dropdown toggle
   window.toggleStudentDetails = function () {
     document.getElementById("studentDetails").classList.toggle("hidden");
